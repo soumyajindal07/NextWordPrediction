@@ -28,7 +28,7 @@ def isTrainedModelAvailable():
     else:
         return False
 
-@app.post("/predictNextFourWords")
+@app.post("/CMSAI/predictNextFourWords")
 def generatesqlfromtext(input:str):
 # Load tokenizer vocabulary
     tokenizer = Tokenizer()
