@@ -8,9 +8,18 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from os import path
 from keras.models import load_model
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
 
 @app.get("/isTokenizerVocabTrainingDataAvailable")
 def isTokenizerVocabTrainingDataAvailable():
